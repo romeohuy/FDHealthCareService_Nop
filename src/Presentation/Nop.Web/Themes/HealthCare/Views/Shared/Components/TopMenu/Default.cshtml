@@ -1,0 +1,138 @@
+﻿@model TopMenuModel
+<!-- RD Navbar Panel-->
+<div class="rd-navbar-panel">
+    <!-- RD Navbar Toggle-->
+    <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+    <!-- RD Navbar Brand-->
+    @await Component.InvokeAsync("Logo")
+</div>
+<div class="rd-navbar-aside-right">
+    <div class="rd-navbar-nav-wrap rd-navbar-nav-wrap-default">
+        <!-- RD Navbar Nav-->
+        <ul class="rd-navbar-nav">
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuBefore })
+            @if (Model.DisplayHomePageMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("HomePage")">@T("HomePage")</a></li>
+            }
+            <li>
+                <a href="#">@T("HealthCare.MainMenu.Services")</a>
+                @{
+                    var rootCategories = Model.Categories.Where(x => x.IncludeInTopMenu).ToList();
+                }
+                <!-- RD Navbar Megamenu-->
+                <ul class="rd-navbar-megamenu">
+
+                    @foreach (var category in rootCategories)
+                    {
+                        <li class="rd-navbar-megamenu-item">
+                            @{
+                                var categoryLineModel = new TopMenuModel.CategoryLineModel
+                                {
+                                    Category = category
+                                };
+                                @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+                            }
+                        </li>
+                    }
+                </ul>
+            </li>
+            @foreach (var topic in Model.Topics)
+            {
+                <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+            }
+            @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+            }
+            @if (Model.DisplayProductSearchMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
+            }
+            @if (Model.DisplayCustomerInfoMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
+            }
+            @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+            }
+            @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+            }
+            @if (Model.DisplayContactUsMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+            }
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuAfter })
+        </ul>
+        <div class="rd-navbar-call">
+            <div class="unit-link-with-icon unit unit-spacing-xs unit-horizontal">
+                <div class="unit-left"><span class="icon icon-md-big icon-primary mdi-phone"></span></div>
+                <div class="unit-body"><a href="tel:@T("Healthcare.HeaderPanel.PhoneContactNumber")">@T("Healthcare.HeaderPanel.PhoneContact")</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+@*@{
+        var rootCategoriesResponsive = Model.Categories.ToList();
+        //name it "Categories" if we have only categories. Otherwise, "Menu"
+        var responsiveMenuTitle = Model.HasOnlyCategories ? T("Categories") : T("Menu");
+        <div class="menu-toggle">@responsiveMenuTitle</div>
+        <ul class="top-menu mobile">
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuBefore })
+            @if (Model.DisplayHomePageMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("HomePage")">@T("HomePage")</a></li>
+            }
+            @foreach (var category in rootCategoriesResponsive)
+            {
+                var categoryLineModel = new TopMenuModel.CategoryLineModel
+                {
+                    Category = category,
+                    ResponsiveMobileMenu = true
+                };
+                @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+            }
+            @foreach (var topic in Model.Topics)
+            {
+                <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+            }
+            @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+            }
+            @if (Model.DisplayProductSearchMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
+            }
+            @if (Model.DisplayCustomerInfoMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
+            }
+            @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+            }
+            @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+            }
+            @if (Model.DisplayContactUsMenuItem)
+            {
+                <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+            }
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuAfter })
+        </ul>
+        <script asp-location="Footer">
+            $(document).ready(function () {
+                $('.menu-toggle').on('click', function () {
+                    $(this).siblings('.top-menu.mobile').slideToggle('slow');
+                });
+                $('.top-menu.mobile .sublist-toggle').on('click', function () {
+                    $(this).siblings('.sublist').slideToggle('slow');
+                });
+            });
+        </script>
+    }*@

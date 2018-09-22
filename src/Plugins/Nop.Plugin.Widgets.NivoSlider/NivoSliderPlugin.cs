@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Nop.Core;
 using Nop.Core.Infrastructure;
 using Nop.Core.Plugins;
@@ -7,6 +6,7 @@ using Nop.Services.Configuration;
 using Nop.Services.Localization;
 using Nop.Services.Media;
 using Nop.Web.Framework.Infrastructure;
+using System.Collections.Generic;
 
 namespace Nop.Plugin.Widgets.NivoSlider
 {
@@ -40,7 +40,7 @@ namespace Nop.Plugin.Widgets.NivoSlider
         /// <returns>Widget zones</returns>
         public IList<string> GetWidgetZones()
         {
-            return new List<string> { PublicWidgetZones.HomePageTop };
+            return new List<string> { PublicWidgetZones.HomePageSlider };
         }
 
         /// <summary>

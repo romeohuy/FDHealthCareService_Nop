@@ -1,0 +1,46 @@
+﻿@model TopMenuModel.CategoryLineModel
+
+<div class="rd-navbar-megamenu-item-inner">
+    <h6 class="rd-navbar-megamenu-title">
+        <a href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">
+            @Model.Category.Name
+            @if (Model.Category.NumberOfProducts.HasValue)
+            {
+                <text> </text>@T("Categories.TotalProducts", Model.Category.NumberOfProducts.Value)
+            }
+        </a>
+    </h6>
+    <div class="rd-navbar-megamenu-divider"></div>
+    <ul>
+        @{
+            //subcategories
+            var subCategories = Model.ResponsiveMobileMenu ?
+                //responsive (all categories)
+                Model.Category.SubCategories :
+                //standard design (only categories with "IncludeInTopMenu")
+                Model.Category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
+
+            var levelClass = "";
+            if (Model.Level == 0)
+            {
+                levelClass = "first-level";
+            }
+            if (subCategories.Count > 0)
+            {
+                foreach (var subCategory in subCategories)
+                {
+                    <li>
+                        <a href="@Url.RouteUrl("Category", new { SeName = subCategory.SeName })">
+                            @subCategory.Name
+                            @if (subCategory.NumberOfProducts.HasValue)
+                            {
+                                <text> </text>@T("Categories.TotalProducts", subCategory.NumberOfProducts.Value)
+                            }
+                        </a>
+                    </li>
+                }
+            }
+        }
+    </ul>
+</div>
+

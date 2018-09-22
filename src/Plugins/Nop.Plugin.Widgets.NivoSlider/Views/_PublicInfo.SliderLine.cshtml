@@ -9,15 +9,15 @@
 
     if (!string.IsNullOrEmpty(pictureUrl))
     {
-        if (!string.IsNullOrEmpty(link))
-        {
-            <a href="@link" aria-label="@alttext">
-                <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
-            </a>
-        }
-        else
-        {
-            <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
-        }
+        <div class="swiper-slide" data-slide-bg="@pictureUrl">
+            <div class="swiper-slide-caption">
+                <div class="parallax-container parallax-container-modern" data-parallax-img="">
+                    <div class="parallax-content section-lg">
+                        <p class="heading-4 heading-divider-modern" data-caption-animate="fadeInUp" data-caption-delay="250" style="font-weight: 400">@alttext</p>
+                        <h1 data-caption-animate="fadeInUp" data-caption-delay="100">@text</h1><a class="button button-white button-effect-ujarak" href="@link" data-caption-animate="fadeInUp" data-caption-delay="450">@T("Healhcare.Slider.ButtonViewDetail")</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
 }

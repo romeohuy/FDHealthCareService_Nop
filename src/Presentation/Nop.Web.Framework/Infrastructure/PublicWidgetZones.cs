@@ -92,6 +92,7 @@
         public static string HomePageBeforeProducts => "home_page_before_products";
         public static string HomePageBottom => "home_page_bottom";
         public static string HomePageTop => "home_page_top";
+        public static string HomePageSlider => "home_page_slider";
         public static string LeftSideColumnAfter => "left_side_column_after";
         public static string LeftSideColumnAfterBlogArchive => "left_side_column_after_blog_archive";
         public static string LeftSideColumnAfterCategoryNavigation => "left_side_column_after_category_navigation";

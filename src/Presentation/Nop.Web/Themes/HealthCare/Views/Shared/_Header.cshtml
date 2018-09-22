@@ -1,0 +1,44 @@
+﻿<!-- Page Header-->
+<header class="page-header">
+    @await Component.InvokeAsync("AdminHeaderLinks")
+    <!-- RD Navbar-->
+    <div class="rd-navbar-wrap">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderBefore })
+        <nav class="rd-navbar rd-navbar-default" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="69px" data-lg-stick-up-offset="66px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
+            <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+            <div class="rd-navbar-top-panel">
+                <div class="rd-navbar-top-panel-inner">
+                    <div class="rd-navbar-collapse">
+                        <ul class="list-spreader">
+                            @await Component.InvokeAsync("TaxTypeSelector")
+                            @await Component.InvokeAsync("CurrencySelector")
+                            @await Component.InvokeAsync("LanguageSelector")
+                            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderSelectors })
+                        </ul>
+                        <div class="rd-navbar-call">
+                            <div class="unit-link-with-icon unit unit-spacing-xs unit-horizontal">
+                                <div class="unit-left"><span class="icon icon-md-big icon-primary mdi-phone"></span></div>
+                                <div class="unit-body"><a href="tel:@T("Healthcare.HeaderPanel.PhoneContactNumber")">@T("Healthcare.HeaderPanel.PhoneContact")</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--RD Navbar Search-->
+                    @*<div class="rd-navbar-search">
+                            @await Component.InvokeAsync("SearchBox")
+                        </div>*@
+                    <!--User menu-->
+                    <div class="header-links">
+                        @await Component.InvokeAsync("HeaderLinks")
+                        @await Component.InvokeAsync("FlyoutShoppingCart")
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="rd-navbar-inner">
+                @await Component.InvokeAsync("TopMenu")
+            </div>
+        </nav>
+    </div>
+</header>
