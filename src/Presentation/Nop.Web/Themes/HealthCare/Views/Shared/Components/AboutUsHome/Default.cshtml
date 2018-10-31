@@ -1,0 +1,23 @@
+﻿@model TopicModel
+<!-- About Clinic-->
+<section class="section section-lg bg-white wow fadeIn">
+    <div class="shell">
+        <div class="range range-md-middle range-30">
+            <div class="cell-md-6 wow fadeIn" data-wow-delay=".3s">
+                <div class="image-skew" style="max-width: 803px;">
+                    <div class="image-skew-inner">
+                        <div class="image-skew-inner-img">
+                            <img src="@Model.MainImageUrl" alt="" width="803" height="458" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell-md-4">
+                <h2 class="heading-with-aside-divider wow fadeInUp" data-wow-delay=".1s">@Model.Title<span class="divider"></span></h2>
+                <p class="wow fadeInUp" data-wow-delay=".3s">
+                    @Html.Raw(Model.Body)
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

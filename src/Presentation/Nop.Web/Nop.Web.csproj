@@ -56,6 +56,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Themes\HealthCare\Views\Shared\Components\AboutUsHome\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\HealthCare\Views\Shared\Head.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

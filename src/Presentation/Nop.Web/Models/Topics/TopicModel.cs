@@ -12,6 +12,7 @@ namespace Nop.Web.Models.Topics
 
         public string Title { get; set; }
 
+        public string MainImageUrl { get; set; }
         public string Body { get; set; }
 
         public string MetaKeywords { get; set; }

@@ -1,0 +1,40 @@
+﻿@model Nop.Web.Models.Home.MakeAnAppointmentModel
+
+<div class="block-modern-title">
+    <h4>Make an Appointment</h4>
+</div>
+<form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="#">
+    <div class="range range-xs-center range-20 range-narrow">
+        <div class="cell-sm-5">
+            <div class="form-wrap form-wrap-validation">
+                <select class="form-input select-filter" data-style="modern" data-placeholder="Select a Department" data-minimum-results-for-search="Infinity">
+                    <option label="placeholder"></option>
+                    <option value="2">Neurology</option>
+                    <option value="3">Dentistry</option>
+                    <option value="4">Cardiology</option>
+                    <option value="5">Pediatrics</option>
+                    <option value="6">Pulmonology</option>
+                    <option value="7">Ophthalmology</option>
+                    <option value="8">Diagnostics</option>
+                </select><span class="select-arrow"></span>
+            </div>
+        </div>
+        <div class="cell-sm-5">
+            <div class="form-wrap form-wrap-validation">
+                <label class="form-label" for="forms-phone">Phone</label>
+                <input class="form-input" id="forms-phone" type="text" name="phone">
+            </div>
+        </div>
+        <div class="cell-sm-5">
+            <div class="form-wrap form-wrap-validation">
+                <label class="form-label" for="forms-email">E-mail</label>
+                <input class="form-input" id="forms-email" type="email" name="email">
+            </div>
+        </div>
+        <div class="cell-sm-5">
+            <div class="form-button">
+                <button class="button button-effect-ujarak button-albus button-block button-square" type="submit">make an Appointment</button>
+            </div>
+        </div>
+    </div>
+</form>

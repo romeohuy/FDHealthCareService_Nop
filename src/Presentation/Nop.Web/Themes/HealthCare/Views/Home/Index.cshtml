@@ -13,14 +13,40 @@
     </div>
     <div class="swiper-pagination swiper-pagination-index" id="swiper-pagination-index"></div>
 </section>
+<!-- Opening Hours-->
+<section class="section section-lg bg-white wow fadeIn">
+    <div class="shell">
+        <div class="range range-30">
+            <div class="cell-sm-5 cell-lg-3 reveal-sm-flex">
+                <div class="block-modern block-modern-1 wow fadeIn" data-wow-delay=".1s">
+                    @await Component.InvokeAsync("OpeningHoursBlock", new { systemName = "OpeningHours" })
+                </div>
+            </div>
+            <div class="cell-sm-5 cell-lg-3 reveal-sm-flex">
+                <div class="block-modern block-modern-2 wow fadeIn" data-wow-delay=".3s">
+                    <div class="block-modern-title">
+                        <h4>@T("HealthCare.DoctorsTimetable.Title")</h4>
+                    </div>
+                    <p>@T("HealthCare.DoctorsTimetable.Content")</p><a class="button button-albus button-effect-ujarak" href="@Url.Action("Timetable","Doctor")">@T("HealthCare.DoctorsTimetable.ButtonViewTimeTable")</a>
+                </div>
+            </div>
+            <div class="cell-lg-4 reveal-md-flex">
+                <div class="block-modern block-modern-3 wow fadeIn" data-wow-delay=".5s">
+                    @await Component.InvokeAsync("HomePageMakeAnAppointment")
+                </div>
+            </div>
 
+        </div>
+    </div>
+</section>
+@await Component.InvokeAsync("AboutUsHome", new { systemName = "AboutUsHome" })
 @await Component.InvokeAsync("TopicBlock", new { systemName = "HomePageText" })
-@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeCategories })
-@await Component.InvokeAsync("HomepageCategories")
-@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeProducts })
-@await Component.InvokeAsync("HomepageProducts")
-@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeBestSellers })
-@await Component.InvokeAsync("HomepageBestSellers")
+@*@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeCategories })
+    @await Component.InvokeAsync("HomepageCategories")
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeProducts })
+    @await Component.InvokeAsync("HomepageProducts")
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeBestSellers })
+    @await Component.InvokeAsync("HomepageBestSellers")*@
 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeNews })
 @await Component.InvokeAsync("HomepageNews")
 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforePoll })

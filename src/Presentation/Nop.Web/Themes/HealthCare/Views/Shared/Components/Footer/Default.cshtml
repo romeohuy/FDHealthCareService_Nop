@@ -106,7 +106,7 @@
                 <div class="title">
                     <strong>@T("Footer.FollowUs")</strong>
                 </div>
-                @await Component.InvokeAsync("SocialButtons")
+                @*@await Component.InvokeAsync("SocialButtons")*@
             </div>
             @await Component.InvokeAsync("NewsletterBox")
         </div>
@@ -118,7 +118,7 @@
             {
                 var inclTax = workContext.TaxDisplayType == TaxDisplayType.IncludingTax;
                 <span class="footer-tax-shipping">
-                    @T(inclTax ? "Footer.TaxShipping.InclTax" : "Footer.TaxShipping.ExclTax", Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("shippinginfo")}))
+                    @T(inclTax ? "Footer.TaxShipping.InclTax" : "Footer.TaxShipping.ExclTax", Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("shippinginfo") }))
                 </span>
             }
         </div>

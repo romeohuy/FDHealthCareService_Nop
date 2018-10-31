@@ -825,8 +825,7 @@
       }
       var topPanelHeight = plugins.rdNavbar.find('.rd-navbar-top-panel').innerHeight();
       plugins.rdNavbar.find('.rd-navbar-top-panel').css({
-        'max-height': topPanelHeight + 25,
-        'min-height':topPanelHeight + 25
+        'max-height': topPanelHeight + 25
       });
     }
 
